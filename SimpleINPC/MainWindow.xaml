@@ -4,9 +4,15 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SimpleINPC"
+        xmlns:classes="clr-namespace:SimpleINPC.Classes"
         mc:Ignorable="d" WindowStartupLocation="CenterScreen"
         Title="MainWindow" Height="250" Width="450">
-    <Grid>
+
+    <Window.Resources>
+        <classes:TipCalculator x:Key="tipCalculator"/>
+    </Window.Resources>
+    
+    <Grid DataContext="{Binding Source={StaticResource tipCalculator}}">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="*" />
@@ -21,12 +27,12 @@
             </Grid.ColumnDefinitions>
             <StackPanel VerticalAlignment="Center" Margin="20">
                 <TextBlock Text="Bill" />
-                <TextBox Text="0"/>
+                <TextBox Text="{Binding Bill}" />
                 <TextBlock Text="Percentage" Margin="0,20,0,0"/>
-                <TextBox/>
+                <TextBox Text="{Binding Percentage}"/>
             </StackPanel>
             <TextBlock Grid.Column="1"
-                       Text="100"
+                       Text="{Binding Tip}"
                        VerticalAlignment="center"
                        Margin="20,0"
                        FontSize="25"

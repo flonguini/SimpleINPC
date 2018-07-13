@@ -15,7 +15,6 @@ namespace SimpleINPC.Classes
         private double _bill;
         private double _percentage;
 
-        private readonly string _tip;
         #endregion
 
         #region Public Properties
